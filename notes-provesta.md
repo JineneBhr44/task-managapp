@@ -26,3 +26,7 @@
 - Développement d’une application web de gestion de tâches
 - Frontend avec React.JS
 - Backend prévu avec Laravel/MySQL (optionnel)
+
+## Difficultés rencontrées
+- Problème avec la commande npx (Node.js non installé)
+- Problème résolu après installation de Node.js
