@@ -30,7 +30,8 @@
 ## Difficultés rencontrées
 - Problème avec la commande npx (Node.js non installé)
 - Problème résolu après installation de Node.js
-###################################################
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
 
 ## 1.Où React met-il tous les éléments que je crée en JSX lorsque j’appelle root.render() ?
 - Tous les éléments que je rends sont placés à l’intérieur du <div> ayant l’id "root" 
@@ -73,5 +74,27 @@ C’est une fonction qui retourne des éléments React (UI).
  )
 ## 9.Nom du composant : majuscule obligatoire
 - React considère tout ce qui commence par une minuscule comme un élément HTML natif (div, span, p, etc.).
-
 - Pour que React comprenne que c’est un composant personnalisé, il faut commencer par une majuscule (Header, MyComponent, TaskItem, etc.).
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## 
+
+## 1.props:
+- Les props sont des données qu’un composant parent envoie à un composant enfant.
+
+## 2.Parent / Child:
+- Parent : composant qui contient d’autres composants.
+- Child : composant appelé à l’intérieur d’un autre composant.
+- Les données passent du parent vers l’enfant via les props.
+
+## 3.map():
+- La méthode map() permet de parcourir un tableau et d’afficher un élément React pour chaque item.
+
+## 4.key:
+- La key est un identifiant unique utilisé par React lors de l’affichage d’une liste.
+- Elle aide React à optimiser le rendu.
+
+## 5.Structure du projet
+- On sépare l’application en petits composants pour mieux organiser le code et faciliter la maintenance.
+
+## 6.Flux des données
+- Dans React, les données circulent de haut en bas : App → TaskList → TaskItem

@@ -1,13 +1,19 @@
 import React from "react";
 import Taskitem from "./taskitem";
 
-function Tasklist(){
+function Tasklist(props){
 
     return(
         <div>
         <h2>Liste des tâches :</h2>
-        <Taskitem />
-        <Taskitem />
+        {props.tasks.map((task) => (
+            <Taskitem 
+                key={task.id}
+                title={task.title}
+                priority={task.priority}
+                status={task.status}
+            />
+        ))}
         </div>
     );
 }
