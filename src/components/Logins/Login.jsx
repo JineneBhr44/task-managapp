@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Loginstyle.css";
+import { useNavigate } from "react-router-dom";
 
 function Login(){
     const[email, setEmail]=useState("");
@@ -7,7 +8,8 @@ function Login(){
     const[showPassword , setShowPassword]=useState(false);
     const [error , setError]=useState("");
     const [rememberMe, setRememberMe] = useState(false);
-
+    const navigate = useNavigate();
+    
     const hSubmit = (e) => {
         e.preventDefault();
 
@@ -23,9 +25,10 @@ function Login(){
             setError("Le mot de passe doit contenir au moins 6 caractères");
             return;
         }
+        navigate("/tasks");
 
         console.log("Tentative de connexion :",{email,password,rememberMe});
-        alert("Connection réussie!");
+        /*alert("Connection réussie!");*/
         setError("");
     };
 

@@ -3,16 +3,20 @@ import React from 'react';
 
 /*import Header from "./components/header";*/
 import Login from "./components/Logins/Login.jsx";
-/*import Taskform from "./components/taskForm";
-import Tasklist from "./components/tasklist";*/
+import { BrowserRouter, Routes , Route} from 'react-router-dom';
+/*import Taskform from "./components/taskForm";*/
+import Tasklist from "./components/tasklist";
 
 
 function App() {
 
   return (
-    <div>
-      <Login />
-    </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login/>}/>
+      <Route path="/tasks" element={<Tasklist />}/>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
