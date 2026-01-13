@@ -1,0 +1,146 @@
+.login-container{
+    padding: 20px;
+    min-height: 100vh;
+    background-image:url(provestalogin.png) ;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-wrapper{
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.699);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+.welcome-side h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: rgb(22, 22, 113);
+    
+}
+.welcome-side{
+    flex: 1;
+    padding: 4rem 3rem;
+    background: linear-gradient( to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+    color:rgb(15, 8, 8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.subtitle{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.social-icons{
+    margin-top: 0.5rem;
+    margin-left: 10rem;
+    display: flex;
+    gap: 1.5rem;
+}
+.social-icons a{
+    color: black;
+    font-size: 1.6rem;
+    opacity: 0.8;
+}
+.form-side{
+    flex:1;
+    padding: 4rem 3rem;
+    background: white;
+    color:rgb(15, 8, 8);
+    
+}
+.form-side h2{
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.form-email{
+    margin-bottom: 1.8rem;
+}
+
+.form-pass{
+    position: relative;
+}
+
+label{
+    display:block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: #333;
+}
+
+input{
+    width:90%;
+    padding:1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.show-pass{
+    position: absolute;
+    top:50%;
+    right: 1.2rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    margin:15px 0px 15px 0px ;
+}
+.remember-grp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.remember-me{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.forgot-pass{
+    color: #667eea;
+    text-decoration: none;
+}
+.loginbtn{
+  width: 100%;
+  padding: 1rem;
+  background:rgb(80, 109, 206);          
+  color:white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.loginbtn:hover { background:rgb(13, 29, 83); }
+
+.terms {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.terms a { color: #667eea; text-decoration: none; }
+
+.error-msg {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
