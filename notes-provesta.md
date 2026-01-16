@@ -98,3 +98,16 @@ C’est une fonction qui retourne des éléments React (UI).
 
 ## 6.Flux des données
 - Dans React, les données circulent de haut en bas : App → TaskList → TaskItem
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## 
+
+## 
+- <TaskForm onAdd={handleAddTask} /> → l’enfant peut demander au parent d’ajouter une tâche
+
+- Quand l’utilisateur clique sur “+ Ajouter une tâche” :
+
+1- TaskForm appelle onAdd()
+
+2- Cela déclenche la fonction handleAddTask() dans le parent
+
+3- Et cette fonction peut mettre à jour le state et ajouter une nouvelle tâche au tableau
