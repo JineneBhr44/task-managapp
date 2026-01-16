@@ -5,7 +5,7 @@ import React from 'react';
 import Login from "./components/Logins/Login.jsx";
 import { BrowserRouter, Routes , Route} from 'react-router-dom';
 /*import Taskform from "./components/taskForm";*/
-import Tasklist from "./components/tasklist";
+import Tasklist from "./components/Tasks/tasklist";
 
 
 function App() {
