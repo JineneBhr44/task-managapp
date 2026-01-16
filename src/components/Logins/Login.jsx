@@ -10,7 +10,7 @@ function Login(){
     const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate();
     
-    const hSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!email || !password){
@@ -25,11 +25,8 @@ function Login(){
             setError("Le mot de passe doit contenir au moins 6 caractères");
             return;
         }
-        navigate("/tasks");
-
-        console.log("Tentative de connexion :",{email,password,rememberMe});
-        /*alert("Connection réussie!");*/
         setError("");
+        navigate("/tasks");
     };
 
     return (
@@ -44,7 +41,7 @@ function Login(){
                         Connectez-vous pour accéder à votre espace de travail.
                     </p>
                     
-                    <div className="social-icons flex gap-4">
+                    <div className="social-icons">
                     <a
                         href="https://www.facebook.com/provestasoftware"
                         target="_blank"
@@ -82,7 +79,7 @@ function Login(){
 
                     {error && <div className="error-msg">{error}</div>}
 
-                    <form onSubmit={hSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <div className="form-email">
                             <label htmlFor="email">Adresse email</label>
                             <input 
