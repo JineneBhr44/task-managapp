@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import"./tasks.css";
 
 function Taskform({onAddTask , onClose}){
     const [formData, setFormdata]=useState(
@@ -28,8 +29,8 @@ function Taskform({onAddTask , onClose}){
     };
 
     return(
-        <div className="tsk-form">
-            <h2>Ajouter une tâche</h2>
+        <div className="form-container">
+            <h2 className="form-title">Ajouter une tâche</h2>
             <form onSubmit={handleSubmit}>
                 <div className="tform">
                     <label>Titre *</label>
@@ -68,7 +69,7 @@ function Taskform({onAddTask , onClose}){
                 </select>
                 </div>
                 <div className="tform">
-                    <label >Date limite</label>
+                    <label >Date limite *</label>
                     <input 
                         type="date" 
                         name="dateLimite"
@@ -79,7 +80,7 @@ function Taskform({onAddTask , onClose}){
                 </div>
                 <div className="form-btn">
                     <button type="submit" className="submit-btn">Ajouter</button>
-                    <button type="button" className="cansel-btn" onClick={onClose}>Annuler</button>
+                    <button type="button" className="cancel-btn" onClick={onClose}>Annuler</button>
                 </div>
             </form>
         </div>

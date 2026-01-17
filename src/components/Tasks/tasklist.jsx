@@ -47,8 +47,8 @@ function Tasklist (){
 
     return(
         <div className="all-tasklist">
-            <div className="list-header">
-                <h1>Liste des tâches-Provesta Soft</h1>
+            <div className="task-header">
+                <h1 className="task-title">Liste des tâches-Provesta Soft</h1>
                 <button 
                 className="addtask-btn"
                 type="button"
@@ -82,8 +82,8 @@ function Tasklist (){
                 onClose={()=>setShowform(false)}                    /* important */
                 />)
             }
-            <div>
-                <table>
+            <div className="table-wrapper">
+                <table className="task-table">
                     <thead>
                         <tr>
                             <th>Titre</th>
