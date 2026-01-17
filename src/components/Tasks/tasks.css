@@ -1,5 +1,7 @@
 .all-tasklist{
-    background-color: #f9fafb;
+    background-image: url(background.png);
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 120vh;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 1800px;
@@ -19,7 +21,7 @@
 }
 .task-title{
     font-size: 2.2rem;
-    color: #26427e;
+    color: rgb(22, 22, 113);
     font-weight: 700;
     transition: all 1s;
     margin-left: 30px;
@@ -74,6 +76,7 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
+    background: transparent;
 }
 .task-table{
     width:100%;
@@ -91,7 +94,7 @@
 .task-table th{
     background-color: #f3f4f6;
     font-weight: 800;
-    color: #2067d8;
+    color: #2a57a1;
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
@@ -177,18 +180,23 @@
 .deconnect{
     width: 15%;
     padding: 0.5rem;
-    background:rgb(185, 34, 34);          
+    background:rgb(221, 33, 33);          
     color:white;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    float: right;
     margin-right: 20px;
     margin-bottom: 30px;
 }
 
 .deconnect:hover { 
     background:rgb(167, 40, 40);
+}
+.logout-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  
 }

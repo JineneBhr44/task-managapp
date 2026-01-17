@@ -108,7 +108,9 @@ function Tasklist (){
             {
                 tasks.length===0 && (<p className="no-tasks">Aucune tâche à afficher.</p>)
             }
-            <button className="deconnect" onClick={handleLogout}> Se Deconnecter </button>
+            <div className="logout-container">
+                <button className="deconnect" onClick={handleLogout}> Se Deconnecter </button>
+            </div>
         </div>
     );
 }
