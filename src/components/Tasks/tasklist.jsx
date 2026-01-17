@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Taskform from "./taskForm";
 import Taskitem from "./taskitem";
+import { useNavigate } from "react-router-dom";
 import"./tasks.css";
 
 function Tasklist (){
+    const navigate = useNavigate();
     const [tasks, setTasks]=useState([
         {
             id: 1,
@@ -43,6 +45,9 @@ function Tasklist (){
     const handleAddTask=(newTask)=>{
         setTasks((prev)=>[...prev,{id:Date.now(),...newTask}]);                     {/* important */}
         setShowform(false);
+    };
+    const handleLogout = () => {
+        navigate("/");
     };
 
     return(
@@ -103,6 +108,7 @@ function Tasklist (){
             {
                 tasks.length===0 && (<p className="no-tasks">Aucune tâche à afficher.</p>)
             }
+            <button className="deconnect" onClick={handleLogout}> Se Deconnecter </button>
         </div>
     );
 }
