@@ -19,7 +19,7 @@ function Tasklist (){
             id: 2,
             titre: "Mettre à jour base clients",
             description: "Ajouter nouveaux contacts 2026",
-            statut: "À faire",
+            statut: "A faire",
             priorite: "Moyenne",
             dateLimite: "05/02/2026",
         },
@@ -27,7 +27,7 @@ function Tasklist (){
             id: 3,
             titre: "Corriger bug page login",
             description: "Erreur sur mobile",
-            statut: "Terminé",
+            statut: "Termine",
             priorite: "Haute",
             dateLimite: "12/01/2026",
         },
@@ -63,16 +63,16 @@ function Tasklist (){
             </div>
             <div className="filtres">
                 <select >
-                    <option value="statut">Statut ▼</option>
-                    <option value="En cours">En cours</option>
-                    <option value="À faire">À faire</option>
-                    <option value="Terminé">Terminé</option>
+                    <option >Statut ▼</option>
+                    <option >En cours</option>
+                    <option >À faire</option>
+                    <option >Terminé</option>
                 </select>
                 <select >
-                    <option value="Priorite">Priorité ▼</option>
-                    <option value="Haute">Haute</option>
-                    <option value="Moyenne">Moyenne</option>
-                    <option value="Basse">Basse</option>
+                    <option >Priorite ▼</option>
+                    <option >Haute</option>
+                    <option >Moyenne</option>
+                    <option >Basse</option>
                 </select>
                 <select >
                     <option>Date limite ▼</option>

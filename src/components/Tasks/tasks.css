@@ -200,3 +200,37 @@
   margin-right: 20px;
   
 }
+.statut-badge,
+.priorite-badge {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+}
+/*statut*/
+.statut-a-faire{
+    background-color: #6b7280;
+    color: white;
+}
+.statut-en-cours{
+    background-color:#3b82f6;
+    color: white;
+}
+.statut-termine{
+    background-color:#10b981;
+    color: white;
+}
+/*priorite*/
+.priorite-haute{
+    background-color: #fee1e5 ;
+    color: #c62828; ;
+}
+.priorite-moyenne{
+    background-color:#feefd6 ;
+    color:#ef6c00 ;
+}
+.priorite-basse{
+    background-color:#defde0 ;
+    color:  #2e7d32;
+}

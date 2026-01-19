@@ -8,7 +8,7 @@ function Taskform({onAddTask , onClose}){
             titre:"",
             description:"",
             statut:"A faire",
-            periorite:"Moyenne",
+            priorite:"Moyenne",
             dateLimite:"",
         }
     );
@@ -56,16 +56,16 @@ function Taskform({onAddTask , onClose}){
                     <label >Statut</label>
                     <select name="statut" onChange={handleChange} value={formData.statut}>
                     <option value="En cours">En cours</option>
-                    <option value="À faire">À faire</option>
-                    <option value="Terminé">Terminé</option>
+                    <option value="A faire">À faire</option>
+                    <option value="Termine">Terminé</option>
                 </select>
                 </div>
                 <div className="tform">
                 <label >Priorite</label>
                 <select name="priorite" onChange={handleChange} value={formData.periorite}>
-                    <option value="Haute">Haute</option>
-                    <option value="Moyenne">Moyenne</option>
-                    <option value="Basse">Basse</option>
+                    <option >Haute</option>
+                    <option >Moyenne</option>
+                    <option>Basse</option>
                 </select>
                 </div>
                 <div className="tform">
