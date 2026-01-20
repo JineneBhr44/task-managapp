@@ -4,7 +4,7 @@ import"./tasks.css";
 function TaskItem({ task }) {
 
   const getStatutClass=(statut)=>{
-    switch(task.statut.toLowerCase().replace(' ', '-')){
+    switch(statut.toLowerCase().replace(' ', '-')){
       case "a-faire" : return "statut-a-faire";
       case "en-cours" : return "statut-en-cours";
       case "termine" : return "statut-termine";
@@ -36,6 +36,10 @@ function TaskItem({ task }) {
         </span>
       </td>
       <td>{task.dateLimite}</td>
+      <td className='supp-modf'>
+        <button className='supp'>Supprimer</button>
+        <button className='modf'>Modifier</button>
+      </td>
     </tr>
 
   );

@@ -41,7 +41,7 @@ function Tasklist (){
         },*/
     ]);
     const [showForm, setShowform]=useState(false);
-
+    const [searchTerm, setSearchTerm] = useState("");
     const handleAddTask=(newTask)=>{
         setTasks((prev)=>[...prev,{id:Date.now(),...newTask}]);                     {/* important */}
         setShowform(false);
@@ -53,40 +53,60 @@ function Tasklist (){
     return(
         <div className="all-tasklist">
             <div className="task-header">
-                <h1 className="task-title">Liste des tâches-Provesta Soft</h1>
+                
+                <img src="/logo-pro.jpg" alt="Provesta Soft" className="header-logo" />
+
+                <div className="search-container">
+                    <div className="search-wrapper">
+                       <input
+                        type="text"
+                        placeholder="Rechercher une tâche..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="search-input"
+                        />
+                        <button
+                        type="button"
+                        className="search-btn"
+                        aria-label="Lancer la recherche"
+                        >
+                        🔍
+                        </button>
+                        {searchTerm && (
+                        <button className="clear-btn" onClick={() => setSearchTerm("")} aria-label="Effacer la recherche">
+                            ×
+                        </button>
+                        )}
+                    </div>
+                </div>
+                <div className="logout-container">
+                    <button className="deconnect" onClick={handleLogout}> Se Déconnecter </button>
+                </div>
+            </div>
+            <h1 className="task-title">Liste des tâches-Provesta Soft</h1>
+            <div className="filtres-btn">
+                <div className="filtres">
+                    <select >
+                        <option >Statut ▼</option>*
+                        <option >En cours</option>
+                        <option >À faire</option>
+                        <option >Terminé</option>
+                    </select>
+                    <select >
+                        <option >Priorite ▼</option>
+                        <option >Haute</option>
+                        <option >Moyenne</option>
+                        <option >Basse</option>
+                    </select>
+                </div>
                 <button 
-                className="addtask-btn"
-                type="button"
-                onClick={()=>setShowform(true)}>
-                    + Ajouter une tâche
+                    className="addtask-btn"
+                    type="button"
+                    onClick={()=>setShowform(true)}>
+                        + Ajouter une tâche
                 </button>
             </div>
-            <div className="filtres">
-                <select >
-                    <option >Statut ▼</option>
-                    <option >En cours</option>
-                    <option >À faire</option>
-                    <option >Terminé</option>
-                </select>
-                <select >
-                    <option >Priorite ▼</option>
-                    <option >Haute</option>
-                    <option >Moyenne</option>
-                    <option >Basse</option>
-                </select>
-                <select >
-                    <option>Date limite ▼</option>
-                    <option>Cette semaine</option>
-                    <option>Ce mois</option>
-                    <option>En retard</option>
-                </select>
-            </div>
-            {
-                showForm && (<Taskform 
-                onAddTask={handleAddTask} 
-                onClose={()=>setShowform(false)}                    /* important */
-                />)
-            }
+            
             <div className="table-wrapper">
                 <table className="task-table">
                     <thead>
@@ -96,6 +116,7 @@ function Tasklist (){
                             <th>Statut</th>
                             <th>Priorité</th>
                             <th>Date limite</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,9 +129,16 @@ function Tasklist (){
             {
                 tasks.length===0 && (<p className="no-tasks">Aucune tâche à afficher.</p>)
             }
-            <div className="logout-container">
-                <button className="deconnect" onClick={handleLogout}> Se Deconnecter </button>
+            {
+                showForm && (<Taskform 
+                onAddTask={handleAddTask} 
+                onClose={()=>setShowform(false)}                    /* important */
+                />)
+            }
+            <div>
+
             </div>
+            
         </div>
     );
 }
