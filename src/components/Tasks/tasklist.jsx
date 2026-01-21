@@ -13,7 +13,7 @@ function Tasklist (){
             description: "Chiffres ventes + stock",
             statut: "En cours",
             priorite: "Haute",
-            dateLimite: "20/01/2026",
+            dateLimite: "2026/01/20",
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ function Tasklist (){
             description: "Ajouter nouveaux contacts 2026",
             statut: "A faire",
             priorite: "Moyenne",
-            dateLimite: "05/02/2026",
+            dateLimite: "2026/02/05",
         },
         {
             id: 3,
@@ -29,25 +29,64 @@ function Tasklist (){
             description: "Erreur sur mobile",
             statut: "Termine",
             priorite: "Haute",
-            dateLimite: "12/01/2026",
+            dateLimite: "2026/01/18",
         },
-        /*{
+        {
             id: 4,
             titre: "Planifier réunion équipe Q1",
             description: "Discussion objectifs 2026",
-            statut: "À faire",
+            statut: "A faire",
             priorite: "Basse",
-            dateLimite: "30/01/2026",
-        },*/
+            dateLimite: "2026/02/04",
+        },
     ]);
+
     const [showForm, setShowform]=useState(false);
-    const [searchTerm, setSearchTerm] = useState("");
+
     const handleAddTask=(newTask)=>{
-        setTasks((prev)=>[...prev,{id:Date.now(),...newTask}]);                     {/* important */}
+        setTasks((prev)=>[...prev,{id:Date.now(),...newTask}]);                     
         setShowform(false);
     };
     const handleLogout = () => {
         navigate("/");
+    };
+    
+    const handleDeletetask =(taskId)=>{
+        if(window.confirm("voulez-vous vraiment supprimer cette tâche ?")){
+            setTasks((prevTasks)=>prevTasks.filter((t)=>t.id !== taskId));
+        }
+    };
+
+    const [editingId,setEditingId]=useState(null);
+
+    const handleEdit = (taskId)=>{
+        setEditingId(taskId);
+    };
+
+    const handleSave = (updateTask)=>{
+        setTasks(prev=> prev.map(t=>
+            t.id === updateTask.id ? {...t,...updateTask}:t
+        ));
+        setEditingId(null);
+    };
+
+    const handleCancel=()=>{
+        setEditingId(null);
+    };
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredTasks, setFilteredTasks] = useState(tasks);
+
+    const handleSearch=()=>{
+        if(!searchTerm.trim()){setFilteredTasks(tasks); // si champ vide, affiche tout
+            return;
+        }
+        const lowerSearch = searchTerm.toLowerCase();
+        const results=tasks.filter(task=>
+            task.titre.toLowerCase().includes(lowerSearch)||
+            task.description.toLowerCase().includes(lowerSearch)
+        );
+        setFilteredTasks(results);
     };
 
     return(
@@ -69,12 +108,17 @@ function Tasklist (){
                         type="button"
                         className="search-btn"
                         aria-label="Lancer la recherche"
+                        onClick={handleSearch}
                         >
                         🔍
                         </button>
                         {searchTerm && (
-                        <button className="clear-btn" onClick={() => setSearchTerm("")} aria-label="Effacer la recherche">
-                            ×
+                        <button className="clear-btn" onClick={() => {
+                                setSearchTerm("");  // efface le texte
+                                setFilteredTasks(tasks);  // ← affiche TOUTES les tâches immédiatement
+                            }}
+                            aria-label="Effacer la recherche">
+                                ×
                         </button>
                         )}
                     </div>
@@ -83,7 +127,9 @@ function Tasklist (){
                     <button className="deconnect" onClick={handleLogout}> Se Déconnecter </button>
                 </div>
             </div>
-            <h1 className="task-title">Liste des tâches-Provesta Soft</h1>
+            <h1 className="task-title">
+                {editingId ? ("Modifier une tâche"):("Mes Tâches – Provesta Soft")}
+            </h1>
             <div className="filtres-btn">
                 <div className="filtres">
                     <select >
@@ -120,24 +166,33 @@ function Tasklist (){
                         </tr>
                     </thead>
                     <tbody>
-                        {tasks.map((task)=>(
-                            <Taskitem key={task.id} task={task}/>                    /* important */
+                        {filteredTasks.map((task)=>(
+                            <Taskitem 
+                            key={task.id} 
+                            task={task}
+                            onDelete={()=>handleDeletetask(task.id)}
+                            onEdit={()=>handleEdit(task.id)}
+                            onSave={handleSave}
+                            onCancel={handleCancel}
+                            isEditing={editingId===task.id}
+                            />                    
                         ))}
                     </tbody>
                 </table>
+                
             </div>
+            {filteredTasks.length === 0 && searchTerm.trim() && (
+                <p className="no-results">Aucune tâche trouvée pour "{searchTerm}"</p>
+            )}
             {
                 tasks.length===0 && (<p className="no-tasks">Aucune tâche à afficher.</p>)
             }
             {
                 showForm && (<Taskform 
                 onAddTask={handleAddTask} 
-                onClose={()=>setShowform(false)}                    /* important */
+                onClose={()=>setShowform(false)}                    
                 />)
             }
-            <div>
-
-            </div>
             
         </div>
     );

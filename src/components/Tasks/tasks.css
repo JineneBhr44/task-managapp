@@ -342,9 +342,17 @@
     padding: 6px;
     align-items: center;
     border-color: #888d94;
-    width: 100px;
+    width: 80px;
     font-weight: 550;
+    transition: background 0.2s;
 }
-.modf{
+.supp{
     margin-left: 9px;
+}
+.no-results {
+  text-align: center;
+  color: #de1212;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  font-style: initial;
 }
