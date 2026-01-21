@@ -51,7 +51,7 @@ function Tasklist (){
         navigate("/");
     };
     
-    const handleDeletetask =(taskId)=>{
+    const handleDeleteTask =(taskId)=>{
         if(window.confirm("voulez-vous vraiment supprimer cette tâche ?")){
             setTasks((prevTasks)=>prevTasks.filter((t)=>t.id !== taskId));
         }
@@ -75,19 +75,10 @@ function Tasklist (){
     };
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredTasks, setFilteredTasks] = useState(tasks);
-
-    const handleSearch=()=>{
-        if(!searchTerm.trim()){setFilteredTasks(tasks); // si champ vide, affiche tout
-            return;
-        }
-        const lowerSearch = searchTerm.toLowerCase();
-        const results=tasks.filter(task=>
-            task.titre.toLowerCase().includes(lowerSearch)||
-            task.description.toLowerCase().includes(lowerSearch)
-        );
-        setFilteredTasks(results);
-    };
+    const filteredTasks = tasks.filter(task =>
+    task.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    task.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return(
         <div className="all-tasklist">
@@ -104,19 +95,9 @@ function Tasklist (){
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="search-input"
                         />
-                        <button
-                        type="button"
-                        className="search-btn"
-                        aria-label="Lancer la recherche"
-                        onClick={handleSearch}
-                        >
-                        🔍
-                        </button>
                         {searchTerm && (
-                        <button className="clear-btn" onClick={() => {
-                                setSearchTerm("");  // efface le texte
-                                setFilteredTasks(tasks);  // ← affiche TOUTES les tâches immédiatement
-                            }}
+                        <button className="clear-btn"
+                        onClick={() => setSearchTerm("")}
                             aria-label="Effacer la recherche">
                                 ×
                         </button>
@@ -170,7 +151,7 @@ function Tasklist (){
                             <Taskitem 
                             key={task.id} 
                             task={task}
-                            onDelete={()=>handleDeletetask(task.id)}
+                            onDelete={()=>handleDeleteTask(task.id)}
                             onEdit={()=>handleEdit(task.id)}
                             onSave={handleSave}
                             onCancel={handleCancel}
@@ -181,9 +162,6 @@ function Tasklist (){
                 </table>
                 
             </div>
-            {filteredTasks.length === 0 && searchTerm.trim() && (
-                <p className="no-results">Aucune tâche trouvée pour "{searchTerm}"</p>
-            )}
             {
                 tasks.length===0 && (<p className="no-tasks">Aucune tâche à afficher.</p>)
             }

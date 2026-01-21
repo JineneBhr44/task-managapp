@@ -89,16 +89,15 @@ function TaskItem({ task,onDelete, onEdit, onSave, onCancel, isEditing}) {
             </button>
           </>
         ) : (
-          <>
-            <div className='supp-modf'>
+          
+          <div className='supp-modf'>
               <button className="modf" onClick={onEdit}>
                 Modifier
               </button>
               <button className="supp" onClick={onDelete}>
                 Supprimer
               </button>
-            </div>
-          </>
+          </div>
         )}
       </td>
     </tr>

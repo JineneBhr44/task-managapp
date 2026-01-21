@@ -276,29 +276,6 @@
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-.search-btn {
-  position: absolute;
-  right: 2.8rem;                 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  background:none;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-
-.search-btn:hover {
-  background: #bdd7f8;
-}
-
 
 .clear-btn {
   position: absolute;
@@ -348,11 +325,4 @@
 }
 .supp{
     margin-left: 9px;
-}
-.no-results {
-  text-align: center;
-  color: #de1212;
-  font-size: 1.1rem;
-  margin: 2rem 0;
-  font-style: initial;
 }
