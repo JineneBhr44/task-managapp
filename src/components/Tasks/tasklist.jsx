@@ -75,10 +75,24 @@ function Tasklist (){
     };
 
     const [searchTerm, setSearchTerm] = useState("");
-    const filteredTasks = tasks.filter(task =>
-    task.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    task.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const [filterStatut, setFilterStatut] = useState("Tous");
+    const [filterPriorite, setFilterPriorite] = useState("Toutes");
+
+    const filteredTasks = tasks.filter((task) => {
+        const matchSearch =
+        task.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        task.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+        const matchStatut =
+         filterStatut === "Tous" || task.statut === filterStatut;
+
+        const matchPriorite =
+         filterPriorite === "Toutes" || task.priorite === filterPriorite;
+
+        return matchSearch && matchStatut && matchPriorite;
+    });
+
+    
 
     return(
         <div className="all-tasklist">
@@ -113,17 +127,20 @@ function Tasklist (){
             </h1>
             <div className="filtres-btn">
                 <div className="filtres">
-                    <select >
-                        <option >Statut ▼</option>*
-                        <option >En cours</option>
-                        <option >À faire</option>
-                        <option >Terminé</option>
+                    <select
+                    value={filterStatut}
+                    onChange={(e) => setFilterStatut(e.target.value)}>
+                        <option value="Tous">Statut ▼</option>
+                        <option value="En cours">En cours</option>
+                        <option value="A faire" >À faire</option>
+                        <option value="Termine">Terminé</option>
                     </select>
-                    <select >
-                        <option >Priorite ▼</option>
-                        <option >Haute</option>
-                        <option >Moyenne</option>
-                        <option >Basse</option>
+                    <select value={filterPriorite}
+                    onChange={(e) => setFilterPriorite(e.target.value)}>
+                        <option  value="Toutes">Priorite ▼</option>
+                        <option value="Haute" >Haute</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Basse">Basse</option>
                     </select>
                 </div>
                 <button 
