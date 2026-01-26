@@ -22,35 +22,59 @@ tr.is-editing select:focus{
     background-color: #9dbcff;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
-tr.is-editing .save-btn{
+
+.actions{
+  padding: 8px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+.action-btn {
+  width: 36px;              
+  height: 36px;
+  border: none;
+  border-radius: 50%;       
+  font-size: 1.3rem;        
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  margin: 0 4px;            
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+.action-btn:hover {
+  transform: scale(1.12); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.action-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+.modf{
+  background-color: #3b82f6;   
+  color: white;
+}
+.modf:hover {
+  background-color: #2563eb;
+}
+.supp{
+  background-color: #ef4444;  
+  color: white;
+}
+.supp:hover {
+  background-color: #dc2626;
+}
+.save-btn{
   background-color: #10b981;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: background-color 0.2s;
 }
-
-tr.is-editing .save-btn:hover {
-  background-color: #059669;
+.save-btn:hover{
+  background-color:#059669 ;
 }
-tr.is-editing .annul-btn {
-  background-color: #6b7280;
+.annul-btn{
+  background-color:#6b7280 ;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  margin-left: 9px;
 }
-
-tr.is-editing .annul-btn:hover {
+.annul-btn:hover{
   background-color: #4b5563;
-  
 }

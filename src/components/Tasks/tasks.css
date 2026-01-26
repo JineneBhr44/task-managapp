@@ -306,23 +306,3 @@
     height: 3.8rem;
     margin-left: 16px;
 }
-/*actions*/
-.supp-modf{
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-  
-}
-.supp,.modf{
-    border-radius: 30px;
-    background-color: #e1e4e9;
-    padding: 6px;
-    align-items: center;
-    border-color: #888d94;
-    width: 80px;
-    font-weight: 550;
-    transition: background 0.2s;
-}
-.supp{
-    margin-left: 9px;
-}
