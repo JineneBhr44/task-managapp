@@ -13,7 +13,7 @@ function Tasklist (){
             description: "Chiffres ventes + stock",
             statut: "En cours",
             priorite: "Haute",
-            dateLimite: "2026/01/20",
+            dateLimite: "2026/04/20",
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ function Tasklist (){
             description: "Ajouter nouveaux contacts 2026",
             statut: "A faire",
             priorite: "Moyenne",
-            dateLimite: "2026/02/05",
+            dateLimite: "2026/05/05",
         },
         {
             id: 3,
@@ -37,7 +37,7 @@ function Tasklist (){
             description: "Discussion objectifs 2026",
             statut: "A faire",
             priorite: "Basse",
-            dateLimite: "2026/02/04",
+            dateLimite: "2026/08/04",
         },
     ]);
 
@@ -91,7 +91,7 @@ function Tasklist (){
 
         return matchSearch && matchStatut && matchPriorite;
     });
-
+    
     
 
     return(

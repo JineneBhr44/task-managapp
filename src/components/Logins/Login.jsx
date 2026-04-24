@@ -121,7 +121,6 @@ function Login(){
                                 />
                                 <span>Se souvenir de moi</span>
                             </label>
-                            <a href="https://passwords.google.com/?hl=fr&pli=1" className="forgot-pass">Mot de passe oublié ?</a>
                         </div>
 
                         <button 
